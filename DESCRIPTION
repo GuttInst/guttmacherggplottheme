@@ -12,3 +12,5 @@ RoxygenNote: 7.2.3
 Imports: 
     ggplot2,
     ggthemes
+URL: https://github.com/GuttInst/guttmacherggplottheme
+BugReports: https://github.com/GuttInst/guttmacherggplottheme/issues
