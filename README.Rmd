@@ -37,8 +37,13 @@ This is a basic example which shows you how to solve a common problem:
 library(guttmacherggplottheme)
 library(ggplot2)
 library(ggthemes)
+library(extrafont)
 
 data(iris)
+
+font_import(pattern="arial.ttf", prompt=FALSE)
+loadfonts()
+
 guttmacher_graph_theme_layer <- list(ggplot2::scale_color_manual(values = c("#2DBF4E", "#00ABCB", "#FFCE01", "#E66A18")),
                                      guttmacherggplottheme::guttmacher_theme())
 ggplot2::ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
