@@ -1,5 +1,5 @@
 ################################################################################
-# 1. Define ggplot themes
+# 1. Define ggplot themes and palettes
 ################################################################################
 
 #' Guttmacher ggplot theme
@@ -34,4 +34,56 @@ guttmacher_theme <- function(base_family = "Arial", base_size = 11, show_legend 
   }
   ret
 }
+
+#' function that returns categorical palette
+#'
+#' @param num_categories
+#'
+#' @return categorical_palette
+#' @export
+#'
+#' @examples
+#' get_categorical_palette()
+#' get_categorical_palette(num_categories=2)
+get_categorical_palette <- function(num_categories=4){
+  if(!is.numeric(num_categories)) stop("The num_categories parameter must be an integer between 1 and 4.")
+  if(!dplyr::between(num_categories, 1, 4)) stop("There is a maximum of 4 categorical colors available.")
+  categorical_palette <- c("#2DBF4E", "#00ABCB", "#FFCE01", "#E66A18")
+  return(categorical_palette[c(1:as.integer(num_categories))])
+}
+
+#' function that returns divergent palette
+#'
+#' @param
+#'
+#' @return divergent_palette
+#' @export
+#'
+#' @examples
+#' get_divergent_palette()
+get_divergent_palette <- function(){
+  return(colorRampPalette(c("#E66A18", "#EFA06B", "#F5C5A5", "#C5C8F5", "#A4A8F0", "#6169E5"))(100))
+}
+
+#' function that returns sequential palette
+#'
+#' @param base_color
+#'
+#' @return sequential_palette
+#' @export
+#'
+#' @examples
+#' get_sequential_palette()
+#' get_sequential_palette(base_color="violet")
+get_sequential_palette <- function(base_color="orange"){
+  if((base_color != "orange") & (base_color != "violet")) stop("Sequential color palette can only have base color of 'violet' or 'orange'.")
+  if(base_color == "orange") return(colorRampPalette(c("#F5C5A5", "#F2B28B", "#EFA06E", "#EC8E52", "#E97C35", "#E66A18"))(100))
+  if(base_color == "violet") return(colorRampPalette(c("#C5C8F5", "#A4A8F0", "#6169E5"))(100))
+}
+
+
+
+
+
+
 
