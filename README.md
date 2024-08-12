@@ -45,10 +45,39 @@ loadfonts()
 #> Arial already registered with pdfFont().
 #> Arial already registered with postscriptFont().
 
-guttmacher_graph_theme_layer <- list(ggplot2::scale_color_manual(values = c("#2DBF4E", "#00ABCB", "#FFCE01", "#E66A18")),
-                                     guttmacherggplottheme::guttmacher_theme())
+# Define color palettes
+categorical_palette <- guttmacherggplottheme::get_categorical_palette(4)
+sequential_palette <- guttmacherggplottheme::get_sequential_palette("violet")
+divergent_palette <- guttmacherggplottheme::get_divergent_palette() 
+
+# Test plot with categorical palette
 ggplot2::ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
-                geom_point() + labs (title ="Floral Test Graph" )  + guttmacher_graph_theme_layer
+  geom_point() + labs (title ="Floral Test Plot (Categorical)" )  + 
+  scale_color_manual(values = categorical_palette) + # Use categorial palette here
+  guttmacherggplottheme::guttmacher_theme()
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
+
+``` r
+
+# Test plot with sequential palette
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
+  geom_point() + scale_color_gradientn(colors = sequential_palette) + # Use sequential palette here
+  guttmacherggplottheme::guttmacher_theme() +
+  labs(title = "Floral Test Plot (Sequential)") 
+```
+
+<img src="man/figures/README-example-2.png" width="100%" />
+
+``` r
+
+# Test plot with divergent palette 
+divergent_palette <- guttmacherggplottheme::get_divergent_palette() 
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
+  geom_point() + scale_color_gradientn(colors = divergent_palette) + # Use divergent palette here
+  guttmacherggplottheme::guttmacher_theme() +
+  labs(title = "Floral Test Plot (Divergent)") 
+```
+
+<img src="man/figures/README-example-3.png" width="100%" />
