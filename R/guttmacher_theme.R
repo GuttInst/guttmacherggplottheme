@@ -65,6 +65,20 @@ get_divergent_palette <- function(){
   return(colorRampPalette(c("#E66A18", "#EFA06B", "#F5C5A5", "#C5C8F5", "#A4A8F0", "#6169E5"))(100))
 }
 
+#' function that returns divergent categorical palette
+#'
+#' @param
+#'
+#' @return divergent_categorical_palette
+#' @export
+#'
+#' @examples
+#' get_divergent_categorical_palette()
+get_divergent_categorical_palette <- function(){
+  divergent_categorical_palette <- c("#E66A18", "#EFA06B", "#F5C5A5", "#C5C8F5", "#A4A8F0", "#6169E5")
+  return(divergent_categorical_palette)
+}
+
 #' function that returns sequential palette
 #'
 #' @param base_color
@@ -74,11 +88,34 @@ get_divergent_palette <- function(){
 #'
 #' @examples
 #' get_sequential_palette()
-#' get_sequential_palette(base_color="violet")
+#' get_sequential_palette(base_color="blue")
 get_sequential_palette <- function(base_color="orange"){
-  if((base_color != "orange") & (base_color != "violet")) stop("Sequential color palette can only have base color of 'violet' or 'orange'.")
+  if((base_color != "orange") & (base_color != "blue")) stop("Sequential color palette can only have base color of 'blue' or 'orange'.")
   if(base_color == "orange") return(colorRampPalette(c("#F5C5A5", "#F2B28B", "#EFA06E", "#EC8E52", "#E97C35", "#E66A18"))(100))
-  if(base_color == "violet") return(colorRampPalette(c("#C5C8F5", "#A4A8F0", "#6169E5"))(100))
+  if(base_color == "blue") return(colorRampPalette(c("#C5C8F5", "#A4A8F0", "#6169E5"))(100))
+}
+
+#' function that returns sequential categorical palette
+#'
+#' @param base_color
+#' @param num_categories
+#'
+#' @return sequential_categorical_palette
+#' @export
+#'
+#' @examples
+#' get_sequential_categorical_palette()
+#' get_sequential_categorical_palette(base_color="blue")
+get_sequential_categorical_palette <- function(base_color="orange", num_categories=6){
+  if(!is.numeric(num_categories)) stop("The num_categories parameter must be an integer between 1 and 6.")
+  if(!dplyr::between(num_categories, 1, 4)) stop("There is a maximum of 6 categorical colors available.")
+
+  orange_palette <- c("#F5C5A5", "#F2B28B", "#EFA06E", "#EC8E52", "#E97C35", "#E66A18")
+  blue_palette <- c("#C5C8F5" , "#B7BBF3", "#A4A8F0", "#8F94EC","#7B82E9", "#6169E5")
+
+  if((base_color != "orange") & (base_color != "blue")) stop("Sequential color palette can only have base color of 'blue' or 'orange'.")
+  if(base_color == "orange") return(orange_palette[c(1:as.integer(num_categories))])
+  if(base_color == "blue") return(blue_palette[c(1:as.integer(num_categories))])
 }
 
 

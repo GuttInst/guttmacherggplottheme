@@ -17,5 +17,5 @@ function that returns sequential palette
 }
 \examples{
 get_sequential_palette()
-get_sequential_palette(base_color="violet")
+get_sequential_palette(base_color="blue")
 }
