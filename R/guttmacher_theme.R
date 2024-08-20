@@ -108,7 +108,7 @@ get_sequential_palette <- function(base_color="orange"){
 #' get_sequential_categorical_palette(base_color="blue")
 get_sequential_categorical_palette <- function(base_color="orange", num_categories=6){
   if(!is.numeric(num_categories)) stop("The num_categories parameter must be an integer between 1 and 6.")
-  if(!dplyr::between(num_categories, 1, 4)) stop("There is a maximum of 6 categorical colors available.")
+  if(!dplyr::between(num_categories, 1, 6)) stop("There is a maximum of 6 categorical colors available.")
 
   orange_palette <- c("#F5C5A5", "#F2B28B", "#EFA06E", "#EC8E52", "#E97C35", "#E66A18")
   blue_palette <- c("#C5C8F5" , "#B7BBF3", "#A4A8F0", "#8F94EC","#7B82E9", "#6169E5")
