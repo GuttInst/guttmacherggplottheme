@@ -2,15 +2,17 @@
 % Please edit documentation in R/guttmacher_theme.R
 \name{get_divergent_categorical_palette}
 \alias{get_divergent_categorical_palette}
-\title{function that returns divergent categorical palette}
+\title{Returns divergent categorical palette containing 6 colors
+Note: this function is intended for plots with exactly 6 categorical variables.}
 \usage{
 get_divergent_categorical_palette()
 }
 \value{
-divergent_categorical_palette
+divergent_categorical_palette A vector of 6 divergent categorical colors.
 }
 \description{
-function that returns divergent categorical palette
+Returns divergent categorical palette containing 6 colors
+Note: this function is intended for plots with exactly 6 categorical variables.
 }
 \examples{
 get_divergent_categorical_palette()

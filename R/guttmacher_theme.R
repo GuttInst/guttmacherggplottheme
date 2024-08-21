@@ -4,11 +4,11 @@
 
 #' Guttmacher ggplot theme
 #'
-#' @param base_family
-#' @param base_size
-#' @param show_legend
+#' @param base_family A string value representing base family name.
+#' @param base_size A numeric value representing base font size.
+#' @param show_legend A Boolean value indicating whether to show the legend or not.
 #'
-#' @return
+#' @return A ggplot theme that fits Guttmacher's branding guidelines.
 #' @export
 #'
 #' @examples
@@ -35,11 +35,11 @@ guttmacher_theme <- function(base_family = "Arial", base_size = 11, show_legend 
   ret
 }
 
-#' function that returns categorical palette
+#' Returns categorical palette
 #'
-#' @param num_categories
+#' @param num_categories An integer representing the number of categorical variables.
 #'
-#' @return categorical_palette
+#' @return categorical_palette A vector of categorical colors.
 #' @export
 #'
 #' @examples
@@ -52,11 +52,10 @@ get_categorical_palette <- function(num_categories=4){
   return(categorical_palette[c(1:as.integer(num_categories))])
 }
 
-#' function that returns divergent palette
+#' Returns divergent palette
 #'
-#' @param
 #'
-#' @return divergent_palette
+#' @return divergent_palette A vector of divergent colors.
 #' @export
 #'
 #' @examples
@@ -65,11 +64,11 @@ get_divergent_palette <- function(){
   return(colorRampPalette(c("#E66A18", "#EFA06B", "#F5C5A5", "#C5C8F5", "#A4A8F0", "#6169E5"))(100))
 }
 
-#' function that returns divergent categorical palette
+#' Returns divergent categorical palette containing 6 colors
+#' Note: this function is intended for plots with exactly 6 categorical variables.
 #'
-#' @param
 #'
-#' @return divergent_categorical_palette
+#' @return divergent_categorical_palette A vector of 6 divergent categorical colors.
 #' @export
 #'
 #' @examples
@@ -79,11 +78,11 @@ get_divergent_categorical_palette <- function(){
   return(divergent_categorical_palette)
 }
 
-#' function that returns sequential palette
+#' Returns sequential palette
 #'
-#' @param base_color
+#' @param base_color A string value representing the base color of the sequential palette.
 #'
-#' @return sequential_palette
+#' @return sequential_palette A vector of sequential colors.
 #' @export
 #'
 #' @examples
@@ -95,12 +94,12 @@ get_sequential_palette <- function(base_color="orange"){
   if(base_color == "blue") return(colorRampPalette(c("#C5C8F5", "#A4A8F0", "#6169E5"))(100))
 }
 
-#' function that returns sequential categorical palette
+#' Returns sequential categorical palette
 #'
-#' @param base_color
-#' @param num_categories
+#' @param base_color A string value representing the base color of the sequential palette.
+#' @param num_categories An integer representing the number of categorical variables.
 #'
-#' @return sequential_categorical_palette
+#' @return sequential_categorical_palette A vector of sequential categorical colors.
 #' @export
 #'
 #' @examples

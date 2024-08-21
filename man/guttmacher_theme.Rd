@@ -7,7 +7,14 @@
 guttmacher_theme(base_family = "Arial", base_size = 11, show_legend = TRUE)
 }
 \arguments{
-\item{show_legend}{}
+\item{base_family}{A string value representing base family name.}
+
+\item{base_size}{A numeric value representing base font size.}
+
+\item{show_legend}{A Boolean value indicating whether to show the legend or not.}
+}
+\value{
+A ggplot theme that fits Guttmacher's branding guidelines.
 }
 \description{
 Guttmacher ggplot theme

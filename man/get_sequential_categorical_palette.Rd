@@ -2,18 +2,20 @@
 % Please edit documentation in R/guttmacher_theme.R
 \name{get_sequential_categorical_palette}
 \alias{get_sequential_categorical_palette}
-\title{function that returns sequential categorical palette}
+\title{Returns sequential categorical palette}
 \usage{
 get_sequential_categorical_palette(base_color = "orange", num_categories = 6)
 }
 \arguments{
-\item{num_categories}{}
+\item{base_color}{A string value representing the base color of the sequential palette.}
+
+\item{num_categories}{An integer representing the number of categorical variables.}
 }
 \value{
-sequential_categorical_palette
+sequential_categorical_palette A vector of sequential categorical colors.
 }
 \description{
-function that returns sequential categorical palette
+Returns sequential categorical palette
 }
 \examples{
 get_sequential_categorical_palette()

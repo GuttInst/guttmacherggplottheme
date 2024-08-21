@@ -2,18 +2,18 @@
 % Please edit documentation in R/guttmacher_theme.R
 \name{get_categorical_palette}
 \alias{get_categorical_palette}
-\title{function that returns categorical palette}
+\title{Returns categorical palette}
 \usage{
 get_categorical_palette(num_categories = 4)
 }
 \arguments{
-\item{num_categories}{}
+\item{num_categories}{An integer representing the number of categorical variables.}
 }
 \value{
-categorical_palette
+categorical_palette A vector of categorical colors.
 }
 \description{
-function that returns categorical palette
+Returns categorical palette
 }
 \examples{
 get_categorical_palette()

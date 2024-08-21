@@ -2,18 +2,18 @@
 % Please edit documentation in R/guttmacher_theme.R
 \name{get_sequential_palette}
 \alias{get_sequential_palette}
-\title{function that returns sequential palette}
+\title{Returns sequential palette}
 \usage{
 get_sequential_palette(base_color = "orange")
 }
 \arguments{
-\item{base_color}{}
+\item{base_color}{A string value representing the base color of the sequential palette.}
 }
 \value{
-sequential_palette
+sequential_palette A vector of sequential colors.
 }
 \description{
-function that returns sequential palette
+Returns sequential palette
 }
 \examples{
 get_sequential_palette()

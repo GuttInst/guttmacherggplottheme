@@ -2,15 +2,15 @@
 % Please edit documentation in R/guttmacher_theme.R
 \name{get_divergent_palette}
 \alias{get_divergent_palette}
-\title{function that returns divergent palette}
+\title{Returns divergent palette}
 \usage{
 get_divergent_palette()
 }
 \value{
-divergent_palette
+divergent_palette A vector of divergent colors.
 }
 \description{
-function that returns divergent palette
+Returns divergent palette
 }
 \examples{
 get_divergent_palette()
