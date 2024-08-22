@@ -24,7 +24,8 @@ devtools::install_github("GuttInst/guttmacherggplottheme")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to make different plots
+using the guttmacherggplottheme package:
 
 ``` r
 library(guttmacherggplottheme)
@@ -53,7 +54,7 @@ data(iris)
 iris <- iris %>%
   mutate(Sepal.Length.Category = cut(Sepal.Length,
                                       breaks = c(4, 4.5, 5, 5.5, 6, 6.5, 10),
-                                      labels = c("4-4.5", "4.5-5", "5.5-6", "6-6.5", "6.5-7", "7+"),
+                                      labels = c("4-4.5", "4.5-5", "5-5.5", "5.5-6", "6-6.5", "6.5+"),
                                       right = FALSE))
 
 ################################################################################
