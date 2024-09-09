@@ -23,7 +23,7 @@ guttmacher_theme <- function(base_family = "Arial", base_size = 11, show_legend 
                                          color = "white"),
           plot.margin = ggplot2::margin(t = 18.4, r = 18.4, b = 7, l = 7, unit = "pt"),
           legend.title = ggplot2::element_text(size = ggplot2::rel(.69)),
-          legend.text = ggplot2::element_text(size = ggplot2::rel(.69)),
+          legend.text = ggplot2::element_text(size = ggplot2::rel(.69), family = base_family),
           legend.position = "inside", legend.position.inside = c(x = .925, y =.91),
           legend.background = ggplot2::element_rect(fill = "white", linetype = "solid", linewidth=0.2)
     )
