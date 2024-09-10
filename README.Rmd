@@ -76,7 +76,7 @@ loadfonts()
 # Here's a simple categorical plot that uses the Guttmacher theme and palette.
 ################################################################################
 
-# Standard categorical palette example
+# Example plot using categorical palette
 categorical_palette <- guttmacherggplottheme::get_categorical_palette(4)        # Define palette
 ggplot2::ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
   geom_point() + scale_color_manual(values = categorical_palette) + # Use palette here
@@ -85,11 +85,11 @@ ggplot2::ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 
 ```
 
-Here are a few more examples of how the palettes and theme can be used:
+Here are a few more examples of how the various palettes and theme can be used:
 
 ```{r example_pt2, fig.width=7, fig.height=9, dpi=700}
 
-# Sequential palette example
+# Example plot using sequential continuous palette
 sequential_palette <- guttmacherggplottheme::get_sequential_palette("blue")     # Define palette
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
   geom_point() + scale_color_gradientn(colors = sequential_palette,             # Use palette here
@@ -99,7 +99,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
   guttmacherggplottheme::guttmacher_theme(legend_border = FALSE) + guides(color = guide_colorbar(ticks.colour = NA)) +
   labs(title = "Floral Test Plot (Sequential)", x = "Sepal Length", y = "Sepal Width", color="Petal Length")
 
-# Sequential categorical palette example
+# Example plot using sequential categorical palette
 sequential_categorical_palette <- guttmacherggplottheme::get_sequential_categorical_palette("orange", 6)  # Define palette
 ggplot2::ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Sepal.Length.Category)) +
   geom_point() + scale_color_manual(values = sequential_categorical_palette) + # Use palette here
@@ -107,7 +107,7 @@ ggplot2::ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Sepal.Lengt
                                                     x = "Petal Length", y = "Petal Width", 
                                                     color = "Sepal Length" ) 
 
-# Divergent palette example
+# Example plot using divergent continuous palette
 divergent_palette <- guttmacherggplottheme::get_divergent_palette()             # Define palette   
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
   geom_point() + scale_color_gradientn(colors = divergent_palette,              # Use palette here
@@ -119,8 +119,8 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
   labs(title = "Floral Test Plot (Divergent)", x = "Sepal Length", 
        y = "Sepal Width", color="Petal Length") 
 
-# Divergent categorical palette example; note that the divergent caterogical palette is intended for plots with
-# 6 categorical variables
+# Example plot using divergent categorical palette; note that the divergent 
+# categorical palette is intended for plots with 6 categorical variables
 divergent_categorical_palette <- guttmacherggplottheme::get_divergent_categorical_palette()        # Define palette
 ggplot2::ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Sepal.Length.Category)) +
   geom_point() + scale_color_manual(values = divergent_categorical_palette) + # Use palette here

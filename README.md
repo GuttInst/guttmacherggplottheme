@@ -79,15 +79,18 @@ font_import(pattern="arial.ttf", prompt=FALSE)
 #> Scanning afm files in C:/Users/amurulidhar/AppData/Local/R/win-library/4.2/extrafontdb/metrics
 loadfonts()
 #> Arial already registered with windowsFonts().
+#> Times New Roman already registered with windowsFonts().
 #> Arial already registered with pdfFont().
+#> Times New Roman already registered with pdfFont().
 #> Arial already registered with postscriptFont().
+#> Times New Roman already registered with postscriptFont().
 
 ################################################################################
 # Now that the libraries and fonts are ready, you can create a plot!
 # Here's a simple categorical plot that uses the Guttmacher theme and palette.
 ################################################################################
 
-# Standard categorical palette example
+# Example plot using categorical palette
 categorical_palette <- guttmacherggplottheme::get_categorical_palette(4)        # Define palette
 ggplot2::ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
   geom_point() + scale_color_manual(values = categorical_palette) + # Use palette here
@@ -97,11 +100,12 @@ ggplot2::ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 
 <img src="man/figures/README-example-1.png" width="100%" />
 
-Here are a few more examples of how the palettes and theme can be used:
+Here are a few more examples of how the various palettes and theme can
+be used:
 
 ``` r
 
-# Sequential palette example
+# Example plot using sequential continuous palette
 sequential_palette <- guttmacherggplottheme::get_sequential_palette("blue")     # Define palette
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
   geom_point() + scale_color_gradientn(colors = sequential_palette,             # Use palette here
@@ -116,7 +120,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
 
 ``` r
 
-# Sequential categorical palette example
+# Example plot using sequential categorical palette
 sequential_categorical_palette <- guttmacherggplottheme::get_sequential_categorical_palette("orange", 6)  # Define palette
 ggplot2::ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Sepal.Length.Category)) +
   geom_point() + scale_color_manual(values = sequential_categorical_palette) + # Use palette here
@@ -129,7 +133,7 @@ ggplot2::ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Sepal.Lengt
 
 ``` r
 
-# Divergent palette example
+# Example plot using divergent continuous palette
 divergent_palette <- guttmacherggplottheme::get_divergent_palette()             # Define palette   
 ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
   geom_point() + scale_color_gradientn(colors = divergent_palette,              # Use palette here
@@ -146,8 +150,8 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
 
 ``` r
 
-# Divergent categorical palette example; note that the divergent caterogical palette is intended for plots with
-# 6 categorical variables
+# Example plot using divergent categorical palette; note that the divergent 
+# categorical palette is intended for plots with 6 categorical variables
 divergent_categorical_palette <- guttmacherggplottheme::get_divergent_categorical_palette()        # Define palette
 ggplot2::ggplot(iris, aes(x = Petal.Length, y = Petal.Width, color = Sepal.Length.Category)) +
   geom_point() + scale_color_manual(values = divergent_categorical_palette) + # Use palette here
