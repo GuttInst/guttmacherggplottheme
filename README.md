@@ -100,9 +100,6 @@ ggplot2::ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 Here are a few more examples of how the palettes and theme can be used:
 
 ``` r
-################################################################################
-# More Examples
-################################################################################
 
 # Sequential palette example
 sequential_palette <- guttmacherggplottheme::get_sequential_palette("blue")     # Define palette
@@ -111,7 +108,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
                                        breaks=c(min(iris$Petal.Length),
                                        max(iris$Petal.Length)), 
                                        labels = c(1,round(max(iris$Petal.Length)))) + 
-  guttmacherggplottheme::guttmacher_theme() + guides(color = guide_colorbar(ticks.colour = NA)) +
+  guttmacherggplottheme::guttmacher_theme(legend_border = FALSE) + guides(color = guide_colorbar(ticks.colour = NA)) +
   labs(title = "Floral Test Plot (Sequential)", x = "Sepal Length", y = "Sepal Width", color="Petal Length")
 ```
 
@@ -139,7 +136,8 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
                                        breaks=c(min(iris$Petal.Length),
                                        max(iris$Petal.Length)), 
                                        labels = c(1,round(max(iris$Petal.Length)))) + 
-  guttmacherggplottheme::guttmacher_theme() + guides(color = guide_colorbar(ticks.colour = NA)) +
+  guttmacherggplottheme::guttmacher_theme(legend_border = FALSE) + 
+  guides(color = guide_colorbar(ticks.colour = NA)) +
   labs(title = "Floral Test Plot (Divergent)", x = "Sepal Length", 
        y = "Sepal Width", color="Petal Length") 
 ```

@@ -4,7 +4,12 @@
 \alias{guttmacher_theme}
 \title{Guttmacher ggplot theme}
 \usage{
-guttmacher_theme(base_family = "Arial", base_size = 11, show_legend = TRUE)
+guttmacher_theme(
+  base_family = "Arial",
+  base_size = 11,
+  show_legend = TRUE,
+  legend_border = TRUE
+)
 }
 \arguments{
 \item{base_family}{A string value representing base family name.}

@@ -35,7 +35,7 @@ devtools::install_github("GuttInst/guttmacherggplottheme")
 
 Here's a simple example that shows you how to make a plot using the guttmacherggplottheme palettes and theme:
 
-```{r example, fig.width=7, fig.height=9, dpi=300}
+```{r example, fig.width=7, fig.height=9, dpi=700}
 ################################################################################
 # First, you'll need to load the necessary libraries and then load the dataset.
 # This examples uses the built-in R dataset called "iris." The next step is to
@@ -87,10 +87,7 @@ ggplot2::ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
 
 Here are a few more examples of how the palettes and theme can be used:
 
-```{r example_pt2, fig.width=7, fig.height=9, dpi=300}
-################################################################################
-# More Examples
-################################################################################
+```{r example_pt2, fig.width=7, fig.height=9, dpi=700}
 
 # Sequential palette example
 sequential_palette <- guttmacherggplottheme::get_sequential_palette("blue")     # Define palette
@@ -99,7 +96,7 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
                                        breaks=c(min(iris$Petal.Length),
                                        max(iris$Petal.Length)), 
                                        labels = c(1,round(max(iris$Petal.Length)))) + 
-  guttmacherggplottheme::guttmacher_theme() + guides(color = guide_colorbar(ticks.colour = NA)) +
+  guttmacherggplottheme::guttmacher_theme(legend_border = FALSE) + guides(color = guide_colorbar(ticks.colour = NA)) +
   labs(title = "Floral Test Plot (Sequential)", x = "Sepal Length", y = "Sepal Width", color="Petal Length")
 
 # Sequential categorical palette example
@@ -117,7 +114,8 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
                                        breaks=c(min(iris$Petal.Length),
                                        max(iris$Petal.Length)), 
                                        labels = c(1,round(max(iris$Petal.Length)))) + 
-  guttmacherggplottheme::guttmacher_theme() + guides(color = guide_colorbar(ticks.colour = NA)) +
+  guttmacherggplottheme::guttmacher_theme(legend_border = FALSE) + 
+  guides(color = guide_colorbar(ticks.colour = NA)) +
   labs(title = "Floral Test Plot (Divergent)", x = "Sepal Length", 
        y = "Sepal Width", color="Petal Length") 
 
