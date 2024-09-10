@@ -14,7 +14,7 @@
 #' @examples
 #' guttmacher_theme()
 #' guttmacher_theme(base_size = 15)
-guttmacher_theme <- function(base_family = "Arial", base_size = 11, show_legend = TRUE) {
+guttmacher_theme <- function(base_family = "Arial", base_size = 11, show_legend = TRUE, legend_border = TRUE) {
   ret <- ggthemes::theme_tufte(base_family = base_family, base_size = base_size) +
     ggplot2::theme(plot.title = ggplot2::element_text(size = ggplot2::rel(1.2), face = "bold", hjust = 0.015, margin = ggplot2::margin(t=40, b=60, unit = "pt")),
           axis.title.x = ggplot2::element_text(size = ggplot2::rel(1), margin = ggplot2::margin(t=10.5, r=8.5, b=8.5, l=8.5, unit = "pt")),
@@ -25,7 +25,7 @@ guttmacher_theme <- function(base_family = "Arial", base_size = 11, show_legend 
           legend.title = ggplot2::element_text(size = ggplot2::rel(.69)),
           legend.text = ggplot2::element_text(size = ggplot2::rel(.69), family = base_family),
           legend.position = "inside", legend.position.inside = c(x = .925, y =.91),
-          legend.background = ggplot2::element_rect(fill = "white", linetype = "solid", linewidth=0.2)
+          legend.background = if (legend_border) ggplot2::element_rect(fill = "white", linetype = "solid", linewidth=0.2) else element_blank()
     )
   if(!show_legend) {
     ret <- ret + ggplot2::theme(
