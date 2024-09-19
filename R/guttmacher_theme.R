@@ -89,9 +89,17 @@ get_divergent_categorical_palette <- function(){
 #' get_sequential_palette()
 #' get_sequential_palette(base_color="blue")
 get_sequential_palette <- function(base_color="orange"){
-  if((base_color != "orange") & (base_color != "blue")) stop("Sequential color palette can only have base color of 'blue' or 'orange'.")
+  if((base_color != "orange") & (base_color != "blue") & (base_color != "green")
+     & (base_color != "light blue") & (base_color != "yellow") &
+     (base_color != "purple") & (base_color != "black"))
+    stop("Sequential color palette can only have a base color of 'blue', 'orange', 'green', 'light blue', 'yellow', 'purple', or 'black'.")
   if(base_color == "orange") return(colorRampPalette(c("#F5C5A5", "#F2B28B", "#EFA06E", "#EC8E52", "#E97C35", "#E66A18"))(100))
-  if(base_color == "blue") return(colorRampPalette(c("#C5C8F5", "#A4A8F0", "#6169E5"))(100))
+  if(base_color == "blue") return(colorRampPalette(c("#c5c8f5", "#B8BBF3", "#A2A7F0", "#8D92EC", "#777DE9", "#6168E5"))(100))
+  if(base_color == "green") return(colorRampPalette(c("#A5E3B3", "#8DDC9F", "#75D58B", "#5DCE76", "#45C662", "#2DBF4E"))(100))
+  if(base_color == "light blue") return(colorRampPalette(c("#A3E1EC", "#83D6E6", "#62CBDF", "#41C1D8", "#21B6D2", "#00ABCB"))(100))
+  if(base_color == "yellow") return(colorRampPalette(c("#FFF1B5", "#FFEA91", "#FFE36D", "#FFDC49", "#FFD525", "#FFCE01"))(100))
+  if(base_color == "purple") return(colorRampPalette(c("#C7C6DB", "#A5A4CF", "#8382B0", "#61609A", "#403E85", "#1E1C6F"))(100))
+  if(base_color == "black") return(colorRampPalette(c("#BFBFBF", "#999999", "#737373", "#4C4C4C", "#262626", "#000000"))(100))
 }
 
 #' Returns sequential categorical palette
@@ -108,13 +116,28 @@ get_sequential_palette <- function(base_color="orange"){
 get_sequential_categorical_palette <- function(base_color="orange", num_categories=6){
   if(!is.numeric(num_categories)) stop("The num_categories parameter must be an integer between 1 and 6.")
   if(!dplyr::between(num_categories, 1, 6)) stop("There is a maximum of 6 categorical colors available.")
+  if((base_color != "orange") & (base_color != "blue") & (base_color != "green")
+     & (base_color != "light blue") & (base_color != "yellow") &
+     (base_color != "purple") & (base_color != "black"))
+    stop("Sequential color palette can only have a base color of 'blue', 'orange', 'green', 'light blue', 'yellow', 'purple', or 'black'.")
 
   orange_palette <- c("#F5C5A5", "#F2B28B", "#EFA06E", "#EC8E52", "#E97C35", "#E66A18")
   blue_palette <- c("#C5C8F5" , "#B7BBF3", "#A4A8F0", "#8F94EC","#7B82E9", "#6169E5")
+  green_palette <- c("#A5E3B3", "#8DDC9F", "#75D58B", "#5DCE76", "#45C662", "#2DBF4E")
+  lightblue_palette <- c("#A3E1EC", "#83D6E6", "#62CBDF", "#41C1D8", "#21B6D2", "#00ABCB")
+  yellow_palette <- c("#FFF1B5", "#FFEA91", "#FFE36D", "#FFDC49", "#FFD525", "#FFCE01")
+  purple_palette <- c("#C7C6DB", "#A5A4CF", "#8382B0", "#61609A", "#403E85", "#1E1C6F")
+  black_palette <- c("#BFBFBF", "#999999", "#737373", "#4C4C4C", "#262626", "#000000")
 
   if((base_color != "orange") & (base_color != "blue")) stop("Sequential color palette can only have base color of 'blue' or 'orange'.")
   if(base_color == "orange") return(orange_palette[c(1:as.integer(num_categories))])
   if(base_color == "blue") return(blue_palette[c(1:as.integer(num_categories))])
+  if(base_color == "green") return(green_palette[c(1:as.integer(num_categories))])
+  if(base_color == "light blue") return(lightblue_palette[c(1:as.integer(num_categories))])
+  if(base_color == "yellow") return(yellow_palette[c(1:as.integer(num_categories))])
+  if(base_color == "purple") return(purple_palette[c(1:as.integer(num_categories))])
+  if(base_color == "black") return(black_palette[c(1:as.integer(num_categories))])
+
 }
 
 
