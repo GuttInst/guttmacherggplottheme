@@ -18,9 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of guttmacherggplottheme is to provide ggplot themes and color palettes that align with Guttmacher's branding. 
-
-Please note that the get_divergent_categorical_palette() function is only intended for plots with exactly 6 categorical variables.
+The goal of guttmacherggplottheme is to provide ggplot themes and color palettes that align with Guttmacher's branding. This package is still in beta; please contact amurulidhar@guttmacher.org or imaddowzimet@guttmacher.org with any bug reports or suggestions (or feel free to file an issue on this Github page directly). 
 
 ## Installation
 
@@ -31,19 +29,17 @@ You can install the guttmacherggplottheme from [GitHub](https://github.com/) wit
 devtools::install_github("GuttInst/guttmacherggplottheme")
 ```
 
-## Example
+## How to use the package
 
-Here's a simple example that shows you how to make a plot using the guttmacherggplottheme palettes and theme:
+Here's a simple example that shows you how to apply the guttmacherggplottheme palettes and theme to a simple plot.  
 
-First, you'll need to load the necessary libraries and then load the dataset. This examples uses the built-in R dataset 
-called "iris." The next step is to prep the dataset for use by transforming two of the continuous variables, "Sepal.length" and "Petal.length"
-into categorical variables by binning the values into categories based on discrete intervals.
+We use the built-in R dataset called "iris" for these examples, which we load below; we also create a few sequential categorical variables (for Petal Length and Sepal Length) to use in our examples. 
 
 ```{r setup, message=FALSE, results=FALSE, warning=FALSE}
 # Load libraries
 library(guttmacherggplottheme)
 library(ggplot2)
-library(ggthemes)
+library(ggthemes) # IMZ2AS: Do we need ggthemes?
 library(extrafont)
 library(dplyr)
 
@@ -63,17 +59,16 @@ iris$Sepal.Length.Category <- cut(iris$Sepal.Length,
                                    labels = c("Short", "Medium", "Long", "Very Long"))
 ```
 
-Then, to be able to use the Guttmacher brand aligned fonts you need to import 
-the Arial font file. This code ensures that the Guttmacher fonts are available
-for use in your R environment.
+Guttmacher figures typically use *National Condensed* or *Gotham Narrow*; because these may not be available on your local machine, you can use *Arial* as an alternative. 
+In order to use any particular font, you need to first import and load it using the `extrafont` package. 
 
 ```{r loadfonts, message=FALSE, results=FALSE, warning=FALSE}
 # Import and load fonts
 font_import(pattern="arial.ttf", prompt=FALSE)
-loadfonts()
+loadfonts() # IMZ2AS: I think this needs to specify device = "win" for png?
 ```
 
-Next, you can use one of the guttmacherggplottheme functions to define a palette for your plot.
+Next, you can use one of the guttmacherggplottheme functions to define a color palette for your plot; for categorical palettes, you will need to specify the number of categories that need colors assigned. 
 ```{r getpalette}
 # Define palette
 categorical_palette <- guttmacherggplottheme::get_categorical_palette(4)        
@@ -86,7 +81,7 @@ Here's a simple categorical plot that uses the Guttmacher theme and palette.
 ################################################################################
 # Example categorical plot 
 ################################################################################
-
+# IMZ2AS: Any way to not have overlap here?
 ggplot(iris, aes(x = Species, fill = Sepal.Length.Category)) +
   geom_bar(position = "stack") +
   scale_fill_manual(values = categorical_palette) + # Use palette here
@@ -98,7 +93,9 @@ ggplot(iris, aes(x = Species, fill = Sepal.Length.Category)) +
 
 ```
 
-Here are a few more examples of how the various palettes and theme can be used:
+# A few more examples
+
+## Continuous palettes: Sequential 
 
 ```{r example_pt2, fig.width=6.75, fig.height=7, dpi=700}
 ################################################################################
@@ -118,6 +115,11 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
   guides(color = guide_colorbar(ticks.colour = NA)) +
   labs(title = "Figure 2. Sepal Length vs. Sepal Width by Petal Length", 
        x = "Sepal Length", y = "Sepal Width", color="Petal Length")
+```
+
+## Continuous palettes: Divergent
+
+```{r example_pt3, fig.width=6.75, fig.height=7, dpi=700}
 
 # Example plot using divergent continuous palette
 divergent_palette <- guttmacherggplottheme::get_divergent_palette()             # Define palette   
@@ -132,10 +134,11 @@ ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Length)) +
   guides(color = guide_colorbar(ticks.colour = NA)) +
   labs(title = "Figure 3. Sepal Length vs. Sepal Width by Petal Length", x = "Sepal Length", 
        y = "Sepal Width", color="Petal Length") 
+```
 
-################################################################################
-# Categorical Plot Examples
-################################################################################
+## Categorical palettes: Sequential
+
+```{r example_pt4, fig.width=6.75, fig.height=7, dpi=700}
 
 # Example plot using sequential categorical palette
 sequential_categorical_palette <- 
@@ -145,6 +148,14 @@ ggplot2::ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Petal.Lengt
   guttmacherggplottheme::guttmacher_theme() + 
   labs (title ="Figure 4. Sepal Length vs. Sepal Width by Petal Length", x = "Sepal Length", 
         y = "Sepal Width", color = "Petal Length" ) 
+
+```
+
+## Categorical palettes: Divergent
+
+Please note that the get_divergent_categorical_palette() function can only currently be used for variables with exactly 6 levels.
+
+```{r example_pt5, fig.width=6.75, fig.height=7, dpi=700}
 
 # Example plot using divergent categorical palette; note that the divergent 
 # categorical palette is intended for plots with 6 categorical variables
