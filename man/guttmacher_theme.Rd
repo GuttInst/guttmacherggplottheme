@@ -8,7 +8,8 @@ guttmacher_theme(
   base_family = "Arial",
   base_size = 11,
   show_legend = TRUE,
-  legend_border = TRUE
+  legend_border = TRUE,
+  legend.position.inside = c(x = 0.925, y = 0.91)
 )
 }
 \arguments{
@@ -17,6 +18,10 @@ guttmacher_theme(
 \item{base_size}{A numeric value representing base font size.}
 
 \item{show_legend}{A Boolean value indicating whether to show the legend or not.}
+
+\item{legend_border}{A Boolean value indicating whether to show the legend border or not.}
+
+\item{legend.position.inside}{A coordinate value indicating the position of the legend inside the plot/}
 }
 \value{
 A ggplot theme that fits Guttmacher's branding guidelines.

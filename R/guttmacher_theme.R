@@ -7,6 +7,8 @@
 #' @param base_family A string value representing base family name.
 #' @param base_size A numeric value representing base font size.
 #' @param show_legend A Boolean value indicating whether to show the legend or not.
+#' @param legend_border A Boolean value indicating whether to show the legend border or not.
+#' @param legend.position.inside A coordinate value indicating the position of the legend inside the plot/
 #'
 #' @return A ggplot theme that fits Guttmacher's branding guidelines.
 #' @export
@@ -14,7 +16,7 @@
 #' @examples
 #' guttmacher_theme()
 #' guttmacher_theme(base_size = 15)
-guttmacher_theme <- function(base_family = "Arial", base_size = 11, show_legend = TRUE, legend_border = TRUE) {
+guttmacher_theme <- function(base_family = "Arial", base_size = 11, show_legend = TRUE, legend_border = TRUE, legend.position.inside = c(x = .925, y =.91)) {
   ret <- ggthemes::theme_tufte(base_family = base_family, base_size = base_size) +
     ggplot2::theme(plot.title = ggplot2::element_text(size = ggplot2::rel(1.2), face = "bold", hjust = 0.015, margin = ggplot2::margin(t=40, b=60, unit = "pt")),
           axis.title.x = ggplot2::element_text(size = ggplot2::rel(1), margin = ggplot2::margin(t=10.5, r=8.5, b=8.5, l=8.5, unit = "pt")),
@@ -24,7 +26,7 @@ guttmacher_theme <- function(base_family = "Arial", base_size = 11, show_legend 
           plot.margin = ggplot2::margin(t = 18.4, r = 18.4, b = 7, l = 7, unit = "pt"),
           legend.title = ggplot2::element_text(size = ggplot2::rel(.69)),
           legend.text = ggplot2::element_text(size = ggplot2::rel(.69), family = base_family),
-          legend.position = "inside", legend.position.inside = c(x = .925, y =.91),
+          legend.position = "inside", legend.position.inside = legend.position.inside,
           legend.background = if (legend_border) ggplot2::element_rect(fill = "white", linetype = "solid", linewidth=0.2) else element_blank()
     )
   if(!show_legend) {
