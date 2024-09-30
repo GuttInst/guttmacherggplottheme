@@ -168,7 +168,7 @@ Please note that the get_divergent_categorical_palette() function can only curre
 
 # Example plot using divergent categorical palette; note that the divergent 
 # categorical palette is intended for plots with 6 categorical variables
-div_categorical_palette <- guttmacherggplottheme::get_divergent_categorical_palette()# Define palette
+div_categorical_palette <- guttmacherggplottheme::get_divergent_categorical_palette()
 ggplot2::ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, 
                               color = flipper_length_mm.Category)) + 
   geom_point() + scale_color_manual(values = div_categorical_palette) +         # Use palette here
