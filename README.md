@@ -27,8 +27,9 @@ devtools::install_github("GuttInst/guttmacherggplottheme")
 Here’s a simple example that shows you how to apply the
 guttmacherggplottheme palettes and theme to a simple plot.
 
-We use the R dataset created by Allison Horst called “palmerpenguins”
-for these examples, which we load below; we also create a few sequential
+We use the R dataset created by Allison Horst called
+[“palmerpenguins”](https://github.com/allisonhorst/palmerpenguins) for
+these examples, which we load below; we also create a few sequential
 categorical variables (for Bill Depth and Flipper Length) to use in our
 examples.
 
@@ -109,9 +110,10 @@ ggplot(penguins, aes(x = species, fill = bill_depth_mm.Category)) +
 ``` r
 
 # Example plot using sequential continuous palette
-sequential_palette <- guttmacherggplottheme::get_sequential_palette("blue")                # Define palette
-ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = flipper_length_mm)) +
-  geom_point() + scale_color_gradientn(colors = sequential_palette,                        # Use palette here
+sequential_palette <- guttmacherggplottheme::get_sequential_palette("blue")         # Define palette
+ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, 
+                     color = flipper_length_mm)) +
+  geom_point() + scale_color_gradientn(colors = sequential_palette,                 # Use palette here
                                        breaks=c(min(penguins$flipper_length_mm)+2.5,
                                        mean(penguins$flipper_length_mm), 
                                        max(penguins$flipper_length_mm)-2), 
@@ -131,9 +133,10 @@ ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = flipper_leng
 ``` r
 
 # Example plot using divergent continuous palette
-divergent_palette <- guttmacherggplottheme::get_divergent_palette()                         # Define palette   
-ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = flipper_length_mm)) +
-  geom_point() + scale_color_gradientn(colors = divergent_palette,                          # Use palette here
+divergent_palette <- guttmacherggplottheme::get_divergent_palette()                 # Define palette   
+ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, 
+                     color = flipper_length_mm)) +
+  geom_point() + scale_color_gradientn(colors = divergent_palette,                  # Use palette here
                                        breaks=c(min(penguins$flipper_length_mm)+2.5,
                                        mean(penguins$flipper_length_mm), 
                                        max(penguins$flipper_length_mm)-2), 
@@ -154,9 +157,10 @@ ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = flipper_leng
 
 # Example plot using sequential categorical palette
 sequential_categorical_palette <- 
-  guttmacherggplottheme::get_sequential_categorical_palette("orange", 6)                    # Define palette
-ggplot2::ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = flipper_length_mm.Category)) +
-  geom_point() + scale_color_manual(values = sequential_categorical_palette) +              # Use palette here
+  guttmacherggplottheme::get_sequential_categorical_palette("orange", 6)            # Define palette
+ggplot2::ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, 
+                              color = flipper_length_mm.Category)) +
+  geom_point() + scale_color_manual(values = sequential_categorical_palette) +      # Use palette here
   guttmacherggplottheme::guttmacher_theme() + 
   labs (title ="Figure 4. Bill Length vs. Bill Depth by Flipper Length", x = "Bill Length", 
         y = "Bill Width", color = "Flipper Length" ) 
@@ -173,9 +177,10 @@ only currently be used for variables with exactly 6 levels.
 
 # Example plot using divergent categorical palette; note that the divergent 
 # categorical palette is intended for plots with 6 categorical variables
-divergent_categorical_palette <- guttmacherggplottheme::get_divergent_categorical_palette()   # Define palette
-ggplot2::ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, color = flipper_length_mm.Category)) + 
-  geom_point() + scale_color_manual(values = divergent_categorical_palette) +                 # Use palette here
+div_categorical_palette <- guttmacherggplottheme::get_divergent_categorical_palette() # Define palette
+ggplot2::ggplot(penguins, aes(x = bill_length_mm, y = bill_depth_mm, 
+                              color = flipper_length_mm.Category)) + 
+  geom_point() + scale_color_manual(values = div_categorical_palette) +               # Use palette here
   guttmacherggplottheme::guttmacher_theme() + 
   labs (title ="Figure 5. Bill Length vs. Bill Depth by Flipper Length", x = "Bill Length", 
         y = "Bill Width", color = "Flipper Length" ) 
