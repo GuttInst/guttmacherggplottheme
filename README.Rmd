@@ -38,9 +38,7 @@ We use the R dataset created by Allison Horst called ["palmerpenguins"](https://
 ```{r setup, message=FALSE, results=FALSE, warning=FALSE}
 # Load libraries
 library(guttmacherggplottheme)
-library(ggplot2)
 library(extrafont)
-library(dplyr)
 library(palmerpenguins)
 library(tidyverse)
 

@@ -36,9 +36,7 @@ examples.
 ``` r
 # Load libraries
 library(guttmacherggplottheme)
-library(ggplot2)
 library(extrafont)
-library(dplyr)
 library(palmerpenguins)
 library(tidyverse)
 
